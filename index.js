@@ -12,6 +12,14 @@ const channels = {
 
 client.on("ready", () => console.log("\x1b[32m%s\x1b[0m", `Ready as '${client.user.tag}' (${client.user.id}) | Created by @sysLambda (syslambda.fr) - github.com/sysLambda/Plain-of-Hyrule`));
 
+client.on("message", (message) => {
+    if(message.channel.type !== "text" || message.author.bot || !message.content.toLowerCase().startsWith("poh!")) return;
+
+    if(message.content.toLowerCase().startsWith("poh!ping")) {
+        message.reply("...").then(m => m.edit(`API: \`${Math.round(client.ws.ping)}ms\`\nTemps de réponse brut (RRT): \`${Math.round(m.createdTimestamp - message.createdTimestamp)}ms\``))
+    }
+});
+
 client.on("voiceStateUpdate", (arg0, arg1) => {
 
     if(arg0.channelID && !arg1.channelID && channels[arg0.channelID]) 
