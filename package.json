@@ -1,0 +1,16 @@
+{
+  "name": "plain-of-hyrule",
+  "version": "1.0.0",
+  "description": "Bot privé créé pour le serveur Discord \"Plain of Hyrule\". Ajoute les permissions de voir un salon textuel lorsqu'un utilisateur rejoint le salon vocal dédié et enlève les permissions lors de la déconnexion.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": "github:syslambda/plain-of-hyrule",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0"
+  }
+}
