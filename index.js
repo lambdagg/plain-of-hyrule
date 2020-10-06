@@ -34,11 +34,11 @@ client.on("message", (message) => {
 });
 
 // Our main event, listening for voice updates (mute, deaf, join, leave, etc etc)
-client.on("voiceStateUpdate", (old, new) => {
-    if(old.channelID && !new.channelID && channels[old.channelID] && !old.member.user.bot) 
+client.on("voiceStateUpdate", (old, nev) => {
+    if(old.channelID && !nev.channelID && channels[old.channelID] && !old.member.user.bot) 
         old.guild.channels.cache.get(channels[old.channelID]).permissionOverwrites.get(old.member.id).delete();
-    if(!old.channelID && new.channelID && channels[new.channelID] && !new.member.user.bot)
-        new.guild.channels.cache.get(channels[new.channelID]).createOverwrite(new.member.id, {VIEW_CHANNEL: true});
+    if(!old.channelID && nev.channelID && channels[nev.channelID] && !nev.member.user.bot)
+        nev.guild.channels.cache.get(channels[nev.channelID]).createOverwrite(nev.member.id, {VIEW_CHANNEL: true});
 });
 
 // Connect our bot to Discord
