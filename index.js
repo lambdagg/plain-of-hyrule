@@ -28,7 +28,7 @@ client.on("ready", () => {
 // Process our commands (not the cleanest way but la flemme yk)
 client.on("message", (message) => {
     if(message.channel.type !== "text" || message.author.bot || !message.content.toLowerCase().startsWith("poh!")) return;
-    if(message.content.toLowerCase().startsWith("poh!ping ") || message.content.toLowerCase(). === "poh!ping") {
+    if(message.content.toLowerCase().startsWith("poh!ping ") || message.content.toLowerCase() === "poh!ping") {
         message.reply("...").then(m => m.edit(`API: \`${Math.round(client.ws.ping)}ms\`\nTemps de réponse brut (RRT): \`${Math.round(m.createdTimestamp - message.createdTimestamp)}ms\``))
     }
 });
